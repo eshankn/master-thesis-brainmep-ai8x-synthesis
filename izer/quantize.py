@@ -172,6 +172,7 @@ def convert_checkpoint(input_file, output_file, arguments):
                 factor = 2**(clamp_bits-1) * distribution_factor
             else:
                 factor = 2**(clamp_bits-1) * sat_fn(checkpoint_state[k])
+                distribution_factor = None
 
             if arguments.verbose:
                 print(k, 'avg_max:', unwrap(avg_max(checkpoint_state[k])),
